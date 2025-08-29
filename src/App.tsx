@@ -12,7 +12,7 @@ export default function App() {
     "2) Sk8 (incredible bouncy dance song)",
     "3) YouUgly (best album opener I’ve heard this year)",
     "4) Glory (banger)",
-    "5) For Keeps (calm)",
+    "5) For Keeps (calm)!",
   ]);
   return (
     <Card sx={{ maxWidth: 345 }}>
