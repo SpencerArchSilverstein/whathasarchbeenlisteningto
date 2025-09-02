@@ -8,6 +8,11 @@ import Typography from "@mui/material/Typography";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "./firebase/firebaseConfig";
 import { useEffect, useState } from "react";
+import EmblaCarousel from "./EmblaCarousel";
+import type { EmblaOptionsType } from "embla-carousel";
+import "./css/base.css";
+import "./css/sandbox.css";
+import "./css/embla.css";
 export default function App() {
   const [data, setData] = useState<any[]>([]);
   useEffect(() => {
@@ -21,6 +26,9 @@ export default function App() {
     };
     fetchData();
   }, []);
+  const OPTIONS: EmblaOptionsType = { axis: "y", loop: true };
+  const SLIDE_COUNT = 10;
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <>
       {data.map((post: any, index: number) => (
@@ -49,6 +57,15 @@ export default function App() {
           </Card>
         </div>
       ))}
+      <div
+        style={{
+          outline: "solid #F1C688 10px",
+          width: 500,
+          borderRadius: 5,
+        }}
+      >
+        <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+      </div>
     </>
   );
 }
